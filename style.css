@@ -1,0 +1,80 @@
+html {
+    background-image: url('https://wallpaperaccess.com/full/2388778.jpg');
+    background-color: #FCF5E5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* #main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+
+
+h1 {
+      text-align: center;
+      position: sticky; 
+      font-family: 'Bilbo', cursive;
+  }
+
+h2 {
+
+      text-align: center;
+      font-family: 'MedievalSharp', cursive;
+  }
+
+li {
+    list-style-type: none;
+}
+
+  #info-container {
+    /* display: flex; */
+    width: 100%;
+    /* margin: auto; */
+  }
+
+  #listContainer{
+      width: 300px;
+      background-color: #FCF5E5;
+      margin: auto;
+      padding: 25px;
+      margin-bottom: 10px;
+
+  }
+
+  #delete-button{
+    float: right;
+  }
+
+
+  /* #cover{
+      height: 500px;
+      width:700px;
+      background: black; 
+
+  }
+
+  #cover:hover {
+      opacity: .50; 
+  } */
+
+  #divForm {
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  #form {
+    display:inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+  }
+
+
