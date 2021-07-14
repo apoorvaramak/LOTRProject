@@ -176,7 +176,7 @@ function renderNameCard(data) {
   });
 
   flipButton.addEventListener('click', (e) => {
-    listContainer.classList.toggle('flipBack')
+    listContainer.classList.toggle('flip')
   })
 
   btnDelete.src = "https://img.icons8.com/dotty/80/000000/crossed-axes.png"
