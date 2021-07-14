@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // btn.type = "submit";
 
     nameInput.placeholder = "Enter Character Name...";
+
+    //Newly ADDED!!!!
+    btn.id = "button"
     btn.textContent = "SEARCH";
 
     //append
@@ -111,6 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     let quoteBtn = document.createElement('button')
+
+    //Newly Added
+    quoteBtn.id = "quote-button"
     quoteBtn.textContent = 'generate random quote'
     //quoteUl.append(quoteLi)
 
@@ -138,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
       })
 
-      btnDelete.textContent = 'X'
+      btnDelete.textContent = "X"
       btnDelete.id = 'delete-button'
       
       btnDelete.addEventListener('click', (e) =>{
