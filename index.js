@@ -63,7 +63,7 @@ function form() {
     fetch(`https://the-one-api.dev/v2/character`, {
     method: "GET",
     headers: {
-      Authorization: "Bearer s39pkHFusu0wb3WuEZGq",
+      Authorization: "Bearer FtLlNgZmTREbtCV1equj",
     },
   })
   .then(resp => resp.json())
@@ -86,7 +86,7 @@ function fetchCharacters(name) {
   fetch(`https://the-one-api.dev/v2/character?name=/${name}/i`, {
     method: "GET",
     headers: {
-      Authorization: "Bearer s39pkHFusu0wb3WuEZGq",
+      Authorization: "Bearer FtLlNgZmTREbtCV1equj",
     },
   })
     .then((response) => response.json())
@@ -113,6 +113,15 @@ function renderNameCard(data) {
   const characWiki = document.createElement("a");
   const btnDelete = document.createElement("img");
 
+  let cardFront = document.createElement("div");
+  let cardBack = document.createElement('div');
+
+  let flipButton = document.createElement('button');
+  flipButton.id = 'flipButton'
+  flipButton.textContent = "Return to Info"
+
+  cardFront.className = "cardFront"
+  cardBack.className = "cardBack"
   let quoteh4 = document.createElement("h4");
 
   //Decided not to make cover to change the color whenit is hovered--------------------
@@ -121,7 +130,7 @@ function renderNameCard(data) {
 
   //Add Info
   listContainer.id = "listContainer";
-  listContainer.class = "listC";
+  listContainer.className = "listC";
   quoteh4.id = "quoteh4";
 
   characNameList.textContent = `Name: ${data.name}`;
@@ -141,25 +150,34 @@ function renderNameCard(data) {
   quoteBtn.textContent = "generate random quote";
   //quoteUl.append(quoteLi)
 
+
   quoteBtn.addEventListener("click", (e) => {
     console.log(e);
     fetch(`https://the-one-api.dev/v2/character/${data._id}/quote`, {
       method: "GET",
       headers: {
-        Authorization: "Bearer s39pkHFusu0wb3WuEZGq",
+        Authorization: "Bearer FtLlNgZmTREbtCV1equj",
       },
     })
       .then((response) => response.json())
       .then((json) => {
         let random = Math.floor(Math.random() * json.total);
         if (json.total === 0) {
-          alert("no quotes available");
+          quoteh4.textContent = 'No Quotes Available';
         } else {
           console.log(json.docs[random].dialog);
           quoteh4.textContent = json.docs[random].dialog;
         }
+        listContainer.classList.toggle('flip')
       });
+
+
+
   });
+
+  flipButton.addEventListener('click', (e) => {
+    listContainer.classList.toggle('flipBack')
+  })
 
   btnDelete.src = "https://img.icons8.com/dotty/80/000000/crossed-axes.png"
   btnDelete.id = "delete-button";
@@ -170,7 +188,9 @@ function renderNameCard(data) {
 
   //append
   wikiLi.append(characWiki);
-  listContainer.append(
+
+  //appending the cards
+  cardFront.append(
     btnDelete,
     characNameList,
     characRace,
@@ -179,9 +199,10 @@ function renderNameCard(data) {
     characBirth,
     characDeath,
     wikiLi,
-    quoteBtn,
-    quoteh4
-  );
+    quoteBtn
+  )
+  cardBack.append(quoteh4, flipButton)
+  listContainer.append(cardFront, cardBack)
   infoContainer.append(listContainer);
 }
 

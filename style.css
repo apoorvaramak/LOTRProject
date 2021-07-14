@@ -62,7 +62,7 @@ input:hover {
   text-transform: uppercase;
   font-size: 15px;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 20px;
   background-color:  #fcf5e575;
   border-radius: 8px;
   padding: 5px;
@@ -115,17 +115,30 @@ li {
 }
 
 #info-container {
-  /* display: flex; */
   width: 100%;
-  /* margin: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
 }
 
+
 #listContainer {
-  width: 300px;
+  /* width: 300px;
   background-color: #fcf5e5;
   margin: auto;
   padding: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  max-height: 100%;
+  
+  background-size: 600px;
+  -webkit-transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
 #delete-button {
@@ -140,16 +153,6 @@ li {
 }
 
 
-/* #cover{
-      height: 500px;
-      width:700px;
-      background: black; 
-
-  }
-
-  #cover:hover {
-      opacity: .50; 
-  } */
 
 #divForm {
   display: block;
@@ -164,10 +167,63 @@ li {
   margin-right: auto;
 }
 
-#listContainer {
+
+.cardFront, .cardBack {
   background-image: url('https://www.myfreetextures.com/wp-content/uploads/2014/11/floral-old-paper-or-parchment-900x702.jpg');
-  background-color: #fcf5e5;
-  max-width: 100%;
-  max-height: 100%;
-  background-size: 650px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.cardFront {
+  width: 300px;
+  height: 300px; 
+  margin: auto;
+  padding: 25px;
+  margin-bottom: 10px;
+  transform: rotateX(0deg);
+  -webkit-transform: rotateX(0deg);
+}
+
+.cardBack {
+  width: 300px;
+  height: 300px; 
+  /* margin-left: 50px; */
+  padding: 25px;
+  margin-bottom: 10px;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  position: absolute;
+  text-align: center;
+  right: 0;
+  left: 0;
+
+}
+
+#listContainer.flip {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  /* position:absolute;
+  right: 0;  */
+  /* margin-left: 25px; 
+  left: 25; */
+}
+
+#flipButton {
+  font-family: "MedievalSharp";
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color:  #fcf5e575;
+  border-radius: 8px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#listContainer.flipBack {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
 }
